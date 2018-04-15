@@ -3,6 +3,7 @@
 <head>
   <title>New Record</title>
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="patientsHome.css">
 </head>
 <body>
 
@@ -12,13 +13,11 @@
         if(typeof timeOutObj != "undefined") {
             clearTimeout(timeOutObj);
         }
-
         timeOutObj = setTimeout(function(){ 
             localStorage.clear();
             firebase.auth().signOut();
             window.location = "LoginOptions";
         }, 100000);   //will expire after twenty minutes
-
    }); 
 </script>
 
@@ -60,7 +59,7 @@ Daily Patient Record:
     </select><br>
     <br>
     Comments : <input type="text" id="Comments"><br>
-    <br><br><br><br>
+    <br>
     Pain System:<br>
     Activity:<select id="painActivity">
       <option value=0>0</option>
@@ -114,7 +113,7 @@ Daily Patient Record:
     </select><br>
 
 
-<br><br>
+
     <button type="button" onClick="sendNewRecord(Day)">Add Details </button>
 
     <a href="patients.html" > Back </a>
